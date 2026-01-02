@@ -7,6 +7,8 @@ import reserbationRoute from "./routes/reserbationRoute.js";
 
 
 const app = express()
+const router = express.Router();
+
 dotenv.config({path: "./config/config.env"})
 
 // connecting frontend to the backend server
