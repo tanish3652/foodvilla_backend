@@ -36,7 +36,7 @@ app.get("/", (req, res) => {
 // Reservation routing 
 app.use('/api/reservation', reserbationRoute);
 
-// dbConnection();
+dbConnection();
 
 // Handling an error using Own error handler.
 app.use(errorMiddlewhere);

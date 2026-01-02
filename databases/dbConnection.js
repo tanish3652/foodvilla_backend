@@ -8,7 +8,8 @@ if(isConnected){
 }
 try{
         await mongoose.connect(process.env.MONGO_URI,{
-            dbName: "RESTAURANT"
+            dbName: "RESTAURANT",
+             serverSelectionTimeoutMS: 5000
         })
         isConnected =true;
         console.log("Mongo DB is Connected Successfully");
