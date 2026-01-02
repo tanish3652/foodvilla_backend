@@ -36,7 +36,16 @@ app.get("/", (req, res) => {
 // Reservation routing 
 app.use('/api/reservation', reserbationRoute);
 
-dbConnection();
+// setting db connection
+router.post("/", async (req, res, next) => {
+    try {
+        await dbConnection();   // THIS LINE FIXES PRODUCTION
+        // your controller logic
+        res.status(200).json({ success: true });
+    } catch (err) {
+        next(err);
+    }
+});
 
 // Handling an error using Own error handler.
 app.use(errorMiddlewhere);
