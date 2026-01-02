@@ -15,6 +15,7 @@ app.use(cors({
     methods:["POST"],
     credentials: true
 }))
+
 // this will conver string data into a Json fromet before stroing into DB
 app.use(express.json());
 
@@ -22,6 +23,15 @@ app.use(express.json());
 app.use(express.urlencoded({
     extended:true
 }))
+
+//DEFAULT HOME ROUTE (VERY IMPORTANT)
+app.get("/", (req, res) => {
+    res.status(200).json({
+        success: true,
+        message: "🚀 Backend is deployed and running successfully!"
+    });
+});
+
 
 // Reservation routing 
 app.use('/api/reservation', reserbationRoute);
